@@ -1,8 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <record id="view_movie_form" model="ir.ui.view">
             <field name="name">movie.form</field>
-            <field name="model">movie.model</field>
+            <field name="model">internship.movie</field>
             <field name="arch" type="xml">
                 <form>
                     <group>
@@ -18,15 +19,21 @@
 
         <record id="action_movie_form" model="ir.actions.act_window">
             <field name="name">Movies</field>
-            <field name="res_model">movie.model</field>
+            <field name="res_model">internship.movie</field>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="movie_module.view_movie_form"/>
-            <field name="view_ids" eval="[(0, 0, ref('movie_module.view_movie_form'))]"/>
+            <field name="binding_view_types">form</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">Create your first movie</p>
             </field>
         </record>
 
-        <menuitem id="menu_movie" name="Movies" parent="base.menu_sales" action="action_movie_form"/>
+        <record id="action_movie_form_view" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_movie_form"/>
+            <field name="act_window_id"  ref="action_movie_form"/>
+
+        </record>
+
+        <menuitem id="menu_movie" name="Movies" action="action_movie_form"/>
     </data>
 </odoo>
