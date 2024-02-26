@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="index" name="Movies">
+		<t t-call="website.layout">
+			<div id="wrap" class="oe_structure oe_empty">
+				<section>
+					<div class="container">
+						<div class="text-center py-5">
+							<h2 class="h1">
+								My movies
+							</h2>
+						</div>
+						<div class="row justify-content-center my-4">
+							<div class="col-12 col-sm-12 col-md-4 col-lg-4 coursedetails pb32 o_colored_level" t-foreach="movies" t-as="movie">
+								<div class="card bg-white h-100 border-0 w-100 rounded-0 bg-transparent o_dynamic_product_hovered">
+									<a class="o_carousel_product_img_link overflow-hidden">
+										<img class="card-img-top h-auto o_img_product_square o_img_product_cover rounded" t-attf-src="data:image/png;base64,{{movie.image}}" />
+									</a>
+									<div class="card-body">
+										<h5 class="card-title">
+											<t t-esc="movie.name" />
+										</h5>
+										<a t-attf-href="" class="btn btn-primary">
+											LEARN MORE
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</t>
+	</template>
+</odoo>

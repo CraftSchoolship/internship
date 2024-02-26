@@ -5,9 +5,11 @@
     'description': """
     Movie Module test
     """,
+    'depends': ['base', 'website'],
     'data': [
         'views/movie.xml',
         'security/ir.model.access.csv',
+        'views/templates.xml',
 
      ],
     
