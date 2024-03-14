@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- webpage record -->
+	<template id="index" name="All movies">
+		<t t-call="website.layout">
+			<div id="wrap" class="oe_structure oe_empty">
+				<section>
+					<div class="container">
+						<div class="row justify-content-center">
+                            <div class="col-md-8 text-center">
+                                <h1 class="display-4">Explore Our Movie Collection</h1>
+                                <p class="lead">Discover a wide range of movies available for you to watch.</p>
+                            </div>
+                     </div>
+						<div class="row justify-content-center my-4">
+							<div class="col-lg-4 col-sm-6 col-12" t-foreach="movies"
+								t-as="movie">
+								<div class="card bg-white">
+									<img class="card-img-top"
+										t-attf-src="data:image/png;base64,{{movie.image}}" />
+									<div class="card-body">
+                                    <h2 class="card-title"><t t-esc="movie.name"/></h2>
+                                    <a href="#" class="btn btn-primary">Learn More</a>
+                                </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</t>
+	</template>
+</odoo>
