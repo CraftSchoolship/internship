@@ -1,7 +1,7 @@
 from odoo import models, fields
 
 class Movie(models.Model):
-    _name = 'movie.model'
+    _name = 'internship.movie'
     _description = 'Movie Model'
 
     name = fields.Char(string='Name', required=True)

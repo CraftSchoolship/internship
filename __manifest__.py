@@ -4,7 +4,9 @@
     'author': 'MissMory',
     'depends': ['base'],
     'data': [
-        'views/movie.xml',
+        'security/ir.model.access.csv',
+        'views/movie.xml',      
     ],
+    'installable': True,
     'application': True,
 }
