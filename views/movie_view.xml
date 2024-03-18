@@ -1,54 +1,56 @@
-<!--<odoo>-->
-<!--    <data>-->
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Définition de la vue Movie_list_View -->
+        <record model="ir.ui.view" id="movie_list_view">
+            <field name="name">Movie List</field>
+            <field name="model">model.movie</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="Name"/>
+                    <field name="Premiere"/>
+                    <field name="Category"/>
+                    <field name="Budget"/>
+                    <!-- <field name="Image"/> -->
+                </tree>
+            </field>
+        </record>
 
-<!--        &lt;!&ndash; Définition de la vue Student_list_View &ndash;&gt;-->
-<!--        <record model="ir.ui.view" id="Movie_list_View">-->
-<!--            <field name="name">Movie List</field>-->
-<!--            <field name="model">model.movie</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <tree>-->
-<!--                    <field name="Name"/>-->
-<!--                    <field name="Premiere"/>-->
-<!--                    <field name="Category"/>-->
-<!--                    <field name="Budget"/>-->
-<!--&lt;!&ndash;                    <field name="Image"/>&ndash;&gt;-->
-<!--                </tree>-->
-<!--            </field>-->
-<!--        </record>-->
+        <!-- Définition de la vue Movie_form_View -->
+        <record model="ir.ui.view" id="movie_form_view">
+            <field name="name">Movie Form</field>
+            <field name="model">model.movie</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="Name"/>
+                            <field name="Premiere"/>
+                            <field name="Category"/>
+                            <field name="Budget"/>
+                            <!-- <field name="Image" widget="image"/> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-<!--        &lt;!&ndash; Définition de la vue Student_form_View &ndash;&gt;-->
-<!--        <record model="ir.ui.view" id="Movie_form_View">-->
-<!--            <field name="name">Movie Form</field>-->
-<!--            <field name="model">model.movie</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <form>-->
-<!--                    <group>-->
-<!--                        <field name="Name"/>-->
-<!--                        <field name="Premiere"/>-->
-<!--                        <field name="Category"/>-->
-<!--                        <field name="Budget"/>-->
-<!--&lt;!&ndash;                        <field name="Image" widget="image"/>&ndash;&gt;-->
-<!--                     </group>-->
-<!--                </form>-->
-<!--            </field>-->
-<!--        </record>-->
+        <!-- Définition de l'action associée à la liste des films -->
+        <record model="ir.actions.act_window" id="movie_action_window">
+            <field name="name">Movies</field>
+            <field name="res_model">model.movie</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="movie_list_view"/>
+        </record>
 
-<!--        &lt;!&ndash; Définition de l'action associée à la liste des étudiants &ndash;&gt;-->
-<!--        <record model="ir.actions.act_window" id="movie_action_window">-->
-<!--            <field name="name">Movie Window</field>-->
-<!--            <field name="res_model">model.movie</field>-->
-<!--            <field name="view_mode">tree,form</field>-->
-<!--            <field name="view_id" ref="Movie_list_View"/>-->
-<!--        </record>-->
+        <!-- Menu Movies -->
+        <menuitem name="Movies" id="movie_menu_root"/>
 
-<!--        &lt;!&ndash; Menu University &ndash;&gt;-->
-<!--        <menuitem name="Movie" id="movie.menu_root"/>-->
+        <!-- Sous-menu Films -->
+        <menuitem name="Movies" id="movie_cat" parent="movie_menu_root"/>
 
-<!--        &lt;!&ndash; Sous-menu Students &ndash;&gt;-->
-<!--        <menuitem name="Movie" id="movie_cat" parent="movie.menu_root"/>-->
+        <!-- Menu Liste des films -->
+        <menuitem name="Liste des films" id="movies_list" parent="movie_cat" action="movie_action_window"/>
 
-<!--        &lt;!&ndash; Menu List of students &ndash;&gt;-->
-<!--        <menuitem name="List of students" id="movies_list" parent="movie_cat" action="movie_action_window"/>-->
-
-<!--    </data>-->
-<!--</odoo>-->
+    </data>
+</odoo>
