@@ -71,6 +71,7 @@
                             <div>
                                 Budget: <field name="budget"/>
                             </div>
+                             
                         </div>
                     </div>
                 </t>

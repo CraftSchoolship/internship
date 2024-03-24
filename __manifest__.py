@@ -8,7 +8,10 @@
         'views/movie.xml', 
         'views/templates.xml'
     ],
+
     'installable': True,
     'application': True,
+    'external_dependencies': {"python": ["prometheus_client"]},
+
 
 }
