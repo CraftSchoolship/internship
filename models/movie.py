@@ -13,19 +13,4 @@ class Movie(models.Model):
     budget = fields.Float(string='Budget')
     image = fields.Binary(string='Image', attachment=True)
 
-    # Initialisation des métriques spécifiques à la classe Movie
-    movie_counter = Counter('odoo_movie_added_total', 'Total number of movies added')
-    movie_duration_histogram = Histogram('odoo_movie_add_duration_seconds', 'Duration of adding a movie in seconds')
-
-    def add_movie(self):
-        start_time = time.time()
-
-        # Logique pour ajouter un film...
-
-        end_time = time.time()
-
-        # Incrémenter le compteur de films ajoutés
-        self.movie_counter.inc()
-
-        # Observer la durée de l'ajout du film
-        self.movie_duration_histogram.observe(end_time - start_time)
+    
